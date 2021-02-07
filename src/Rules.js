@@ -61,13 +61,13 @@ class SumDistro extends Rule {
 class FullHouse extends Rule {
   evalRoll=(dice)=>{
     const freqs=this.freq(dice);
-    (freqs.includes(2)&&freqs.includes(3)) ? this.score:0;
+    return (freqs.includes(2)&&freqs.includes(3)) ? this.score:0;
   }
 }
 
 /** Check for small straights. */
 
-class SmallStraight  {
+class SmallStraight extends Rule  {
   evalRoll=dice=>{
     const d=new Set(dice);
     if(d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5))){
